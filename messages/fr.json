@@ -16,26 +16,38 @@
   "auth": {
     "login": {
       "title": "Connexion",
-      "subtitle": "Entrez votre email pour accéder à votre compte",
+      "subtitle": "Accédez à votre compte",
       "email": { "label": "Email" },
       "password": { "label": "Mot de passe" },
       "forgot": "Mot de passe oublié ?",
-      "noAccount": "Pas encore de compte ?",
-      "signup": "Créer un compte",
       "cta": { "submit": "Se connecter", "loading": "Connexion..." },
-      "error": "Erreur : {message}"
+      "noAccount": "Pas de compte ?",
+      "signup": "Créer un compte",
+      "error": "{message}",
+      "errors": {
+        "invalidCredentials": "Email ou mot de passe incorrect.",
+        "emailNotConfirmed": "Veuillez confirmer votre email avant de vous connecter.",
+        "rateLimited": "Trop de tentatives. Réessayez plus tard.",
+        "unknown": "Une erreur est survenue. Réessayez."
+      }
     },
     "signup": {
       "title": "Créer un compte",
-      "subtitle": "Renseignez votre email et un mot de passe",
+      "subtitle": "Commencez votre essai",
       "email": { "label": "Email" },
       "password": { "label": "Mot de passe" },
-      "repeat": { "label": "Répéter le mot de passe" },
+      "repeat": { "label": "Confirmer le mot de passe" },
+      "cta": { "submit": "S’inscrire", "loading": "Inscription..." },
       "hasAccount": "Déjà un compte ?",
       "login": "Se connecter",
-      "cta": { "submit": "Créer le compte", "loading": "Création..." },
+      "error": "{message}",
       "errors": {
-        "mismatch": "Les mots de passe ne correspondent pas"
+        "mismatch": "Les mots de passe ne correspondent pas.",
+        "weakPassword": "Le mot de passe doit contenir au moins 6 caractères.",
+        "emailInUse": "Cet email est déjà utilisé.",
+        "userExists": "Un compte existe déjà avec cet email.",
+        "rateLimited": "Trop de tentatives. Réessayez plus tard.",
+        "unknown": "Une erreur est survenue. Réessayez."
       }
     },
     "forgot": {
@@ -49,6 +61,13 @@
         "title": "Vérifiez votre boîte mail",
         "subtitle": "Instructions envoyées",
         "body": "Si vous avez un compte avec email et mot de passe, vous recevrez un email de réinitialisation."
+      },
+      "error": "{message}",
+      "errors": {
+        "invalidEmail": "Adresse email invalide.",
+        "userNotFound": "Aucun compte avec cet email.",
+        "rateLimited": "Trop de tentatives. Réessaie plus tard.",
+        "unknown": "Une erreur est survenue."
       }
     },
     "update": {
@@ -58,7 +77,14 @@
         "label": "Nouveau mot de passe",
         "placeholder": "Votre nouveau mot de passe"
       },
-      "cta": { "submit": "Enregistrer", "loading": "Enregistrement..." }
+      "cta": { "submit": "Enregistrer", "loading": "Enregistrement..." },
+      "error": "{message}",
+      "errors": {
+        "weakPassword": "Mot de passe trop faible.",
+        "sessionExpired": "Session expirée. Relance le lien de réinitialisation.",
+        "rateLimited": "Trop de tentatives. Réessaie plus tard.",
+        "unknown": "Une erreur est survenue."
+      }
     },
     "signupSuccess": {
       "title": "Merci pour votre inscription !",
@@ -114,16 +140,62 @@
         "title": "Apparence",
         "desc": "Activez le mode sombre si vos yeux le réclament."
       }
-    },
-    "nav": {
-      "section": "Navigation",
-      "dashboard": "Dashboard",
-      "clients": "Clients"
     }
+  },
+  "breadcrumbs": {
+    "dashboard": "Dashboard",
+    "clients": "Clients",
+    "profile": "Profil"
   },
   "userMenu": {
     "open": "Ouvrir le menu utilisateur",
     "profile": "Profil",
     "logout": "Se déconnecter"
+  },
+  "profile": {
+    "title": "Mon profil",
+    "subtitle": "Gérez votre identité, votre email, votre mot de passe et votre avatar.",
+    "identity": {
+      "title": "Identité",
+      "desc": "Nom affiché et email de connexion.",
+      "save": "Enregistrer",
+      "fullName": "Nom complet",
+      "fullNamePh": "Votre nom complet",
+      "email": "Email",
+      "note": "Selon les paramètres de Supabase, un email de confirmation peut être requis.",
+      "updated": "Profil mis à jour.",
+      "errors": {
+        "generic": "Une erreur est survenue. Réessayez."
+      }
+    },
+    "avatar": {
+      "title": "Avatar",
+      "desc": "Personnalisez votre photo de profil.",
+      "upload": "Téléverser",
+      "hint": "PNG/JPG/WebP, max 2 Mo.",
+      "errors": {
+        "fileTooLarge": "Fichier trop volumineux (max 2 Mo).",
+        "noFile": "Aucun fichier sélectionné.",
+        "uploadFailed": "Échec du téléversement. Réessaie.",
+        "profileUpdateFailed": "Avatar téléversé mais profil non mis à jour.",
+        "generic": "Une erreur est survenue."
+      }
+    },
+    "password": {
+      "title": "Mot de passe",
+      "desc": "Sécurisez votre compte avec un mot de passe robuste.",
+      "new": "Nouveau mot de passe",
+      "newPh": "Votre nouveau mot de passe",
+      "confirm": "Confirmer le mot de passe",
+      "confirmPh": "Retapez votre mot de passe",
+      "update": "Mettre à jour",
+      "note": "Si votre session expire après le changement, reconnectez-vous.",
+      "updated": "Mot de passe mis à jour.",
+      "errors": {
+        "passwordMismatch": "Les mots de passe ne correspondent pas.",
+        "weakPassword": "Le mot de passe doit contenir au moins 6 caractères.",
+        "generic": "Une erreur est survenue. Réessayez."
+      }
+    }
   }
 }

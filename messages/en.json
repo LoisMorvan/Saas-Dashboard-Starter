@@ -1,54 +1,73 @@
 {
   "theme": {
-    "switch": "Change theme",
+    "switch": "Switch theme",
     "light": "Light",
     "dark": "Dark",
     "system": "System"
   },
   "lang": {
-    "switch": "Change language",
+    "switch": "Switch language",
     "french": "French",
     "english": "English"
   },
   "common": {
-    "unknownError": "An unknown error occurred"
+    "unknownError": "An error occurred"
   },
   "auth": {
     "login": {
-      "title": "Log in",
-      "subtitle": "Enter your email to access your account",
+      "title": "Sign in",
+      "subtitle": "Access your account",
       "email": { "label": "Email" },
       "password": { "label": "Password" },
-      "forgot": "Forgot your password?",
-      "noAccount": "Don't have an account?",
-      "signup": "Sign up",
-      "cta": { "submit": "Log in", "loading": "Logging in..." },
-      "error": "Error: {message}"
+      "forgot": "Forgot password?",
+      "cta": { "submit": "Sign in", "loading": "Signing in..." },
+      "noAccount": "No account?",
+      "signup": "Create an account",
+      "error": "{message}",
+      "errors": {
+        "invalidCredentials": "Incorrect email or password.",
+        "emailNotConfirmed": "Please confirm your email before signing in.",
+        "rateLimited": "Too many attempts. Try again later.",
+        "unknown": "An error occurred. Please try again."
+      }
     },
     "signup": {
-      "title": "Sign up",
-      "subtitle": "Provide your email and a password",
+      "title": "Create an account",
+      "subtitle": "Start your trial",
       "email": { "label": "Email" },
       "password": { "label": "Password" },
-      "repeat": { "label": "Repeat password" },
+      "repeat": { "label": "Confirm password" },
+      "cta": { "submit": "Sign up", "loading": "Signing up..." },
       "hasAccount": "Already have an account?",
-      "login": "Log in",
-      "cta": { "submit": "Create account", "loading": "Creating..." },
+      "login": "Sign in",
+      "error": "{message}",
       "errors": {
-        "mismatch": "Passwords do not match"
+        "mismatch": "Passwords do not match.",
+        "weakPassword": "Password must be at least 6 characters.",
+        "emailInUse": "This email is already in use.",
+        "userExists": "An account already exists with this email.",
+        "rateLimited": "Too many attempts. Try again later.",
+        "unknown": "An error occurred. Please try again."
       }
     },
     "forgot": {
-      "title": "Reset your password",
-      "subtitle": "Enter your email and we'll send you a reset link.",
+      "title": "Reset password",
+      "subtitle": "Enter your email and we’ll send you a reset link.",
       "email": { "label": "Email" },
-      "cta": { "submit": "Send reset email", "loading": "Sending..." },
+      "cta": { "submit": "Send email", "loading": "Sending..." },
       "hasAccount": "Already have an account?",
-      "login": "Log in",
+      "login": "Sign in",
       "sent": {
-        "title": "Check your email",
-        "subtitle": "Password reset instructions sent",
-        "body": "If you registered with email and password, you'll receive a reset email."
+        "title": "Check your inbox",
+        "subtitle": "Instructions sent",
+        "body": "If you have an email-and-password account, you will receive a reset email."
+      },
+      "error": "{message}",
+      "errors": {
+        "invalidEmail": "Invalid email address.",
+        "userNotFound": "No account found with this email.",
+        "rateLimited": "Too many attempts. Try again later.",
+        "unknown": "An error occurred."
       }
     },
     "update": {
@@ -58,16 +77,23 @@
         "label": "New password",
         "placeholder": "Your new password"
       },
-      "cta": { "submit": "Save new password", "loading": "Saving..." }
+      "cta": { "submit": "Save", "loading": "Saving..." },
+      "error": "{message}",
+      "errors": {
+        "weakPassword": "Password is too weak.",
+        "sessionExpired": "Session expired. Open a new reset link.",
+        "rateLimited": "Too many attempts. Try again later.",
+        "unknown": "An error occurred."
+      }
     },
     "signupSuccess": {
-      "title": "Thank you for signing up!",
+      "title": "Thanks for signing up!",
       "subtitle": "Check your email to confirm",
-      "body": "You've created your account. Please confirm it via email before logging in."
+      "body": "Your account has been created. Confirm it via the email before signing in."
     },
     "signIn": "Sign in",
     "signUp": "Sign up",
-    "logout": "Log out"
+    "logout": "Sign out"
   },
   "app": {
     "title": "LimeCore"
@@ -75,55 +101,101 @@
   "home": {
     "badge": "SaaS Starter",
     "title": "Build and ship a modern SaaS in a weekend",
-    "subtitle": "Next.js + Tailwind + Supabase. Secure auth, Clients CRUD, dark mode, and a dashboard that doesn’t hurt to look at.",
-    "ctaPrimary": "Get started",
+    "subtitle": "Next.js + Tailwind + Supabase. Secure auth, Clients CRUD, dark mode, and a dashboard that won’t make you cry.",
+    "ctaPrimary": "Get started for free",
     "ctaSecondary": "Sign in",
-    "disclaimer": "No credit card. Break things later, we have migrations.",
+    "disclaimer": "No credit card. Break things later; we have migrations.",
     "f1": {
-      "title": "Auth out of the box",
-      "desc": "Email, password reset, and OAuth via Supabase Auth. Server-side sessions."
+      "title": "Ready-to-use auth",
+      "desc": "Email, password reset, and OAuth via Supabase Auth. Sessions handled on the server."
     },
     "f2": {
-      "title": "Data you control",
-      "desc": "Clients table with RLS. Each user only sees their rows. Security first, drama second."
+      "title": "Data under control",
+      "desc": "Clients table with RLS. Each user only sees their rows. Security first, drama later."
     },
     "f3": {
       "title": "Consistent UI",
-      "desc": "Tailwind, clear layout, reusable components. Dark mode for your retinas."
+      "desc": "Tailwind, clean layout, reusable components. Dark mode if your eyes insist."
     },
     "bottom": {
       "title": "Ready to launch your SaaS base",
-      "desc": "Save time on plumbing, focus on value.",
-      "cta": "Create account"
+      "desc": "Save time on infrastructure, focus on value.",
+      "cta": "Create my account"
     }
   },
   "dashboard": {
     "title": "Dashboard",
     "welcome": "Welcome to your dashboard",
-    "intro": "Start by adding some clients or personalizing your profile.",
+    "intro": "Start by creating a few clients or customizing your profile.",
     "cards": {
       "clients": {
         "title": "Clients",
         "desc": "Manage the list, add, edit, delete."
       },
       "quickstart": {
-        "title": "Quickstart",
-        "desc": "Navigation, themes, security: ready to go."
+        "title": "Quick start",
+        "desc": "Navigation, themes, security: all set."
       },
       "theme": {
         "title": "Appearance",
-        "desc": "Enable dark mode if your eyes insist."
+        "desc": "Enable dark mode if your eyes demand it."
       }
-    },
-    "nav": {
-      "section": "Navigation",
-      "dashboard": "Dashboard",
-      "clients": "Clients"
     }
+  },
+  "breadcrumbs": {
+    "dashboard": "Dashboard",
+    "clients": "Clients",
+    "profile": "Profile"
   },
   "userMenu": {
     "open": "Open user menu",
     "profile": "Profile",
-    "logout": "Log out"
+    "logout": "Sign out"
+  },
+  "profile": {
+    "title": "My profile",
+    "subtitle": "Manage your identity, email, password, and avatar.",
+    "identity": {
+      "title": "Identity",
+      "desc": "Display name and sign-in email.",
+      "save": "Save",
+      "fullName": "Full name",
+      "fullNamePh": "Your full name",
+      "email": "Email",
+      "note": "Depending on Supabase settings, a confirmation email may be required.",
+      "updated": "Profile updated.",
+      "errors": {
+        "generic": "An error occurred. Please try again."
+      }
+    },
+    "avatar": {
+      "title": "Avatar",
+      "desc": "Customize your profile photo.",
+      "upload": "Upload",
+      "hint": "PNG/JPG/WebP, max 2 MB.",
+      "errors": {
+        "fileTooLarge": "File too large (max 2 MB).",
+        "noFile": "No file selected.",
+        "uploadFailed": "Upload failed. Try again.",
+        "profileUpdateFailed": "File uploaded but profile was not updated.",
+        "generic": "An error occurred."
+      }
+    },
+    "password": {
+      "title": "Password",
+      "desc": "Secure your account with a strong password.",
+      "new": "New password",
+      "newPh": "Your new password",
+      "confirm": "Confirm password",
+      "confirmPh": "Retype your password",
+      "update": "Update",
+      "note": "If your session expires after the change, sign in again.",
+      "updated": "Password updated.",
+      "errors": {
+        "passwordMismatch": "Passwords do not match.",
+        "weakPassword": "Password must be at least 6 characters.",
+        "generic": "An error occurred. Please try again."
+      }
+    }
   }
 }
