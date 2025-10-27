@@ -96,5 +96,34 @@
       "desc": "Save time on plumbing, focus on value.",
       "cta": "Create account"
     }
+  },
+  "dashboard": {
+    "title": "Dashboard",
+    "welcome": "Welcome to your dashboard",
+    "intro": "Start by adding some clients or personalizing your profile.",
+    "cards": {
+      "clients": {
+        "title": "Clients",
+        "desc": "Manage the list, add, edit, delete."
+      },
+      "quickstart": {
+        "title": "Quickstart",
+        "desc": "Navigation, themes, security: ready to go."
+      },
+      "theme": {
+        "title": "Appearance",
+        "desc": "Enable dark mode if your eyes insist."
+      }
+    },
+    "nav": {
+      "section": "Navigation",
+      "dashboard": "Dashboard",
+      "clients": "Clients"
+    }
+  },
+  "userMenu": {
+    "open": "Open user menu",
+    "profile": "Profile",
+    "logout": "Log out"
   }
 }

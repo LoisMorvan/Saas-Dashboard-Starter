@@ -96,5 +96,34 @@
       "desc": "Gagnez du temps sur l’infrastructure, concentrez-vous sur la valeur.",
       "cta": "Créer mon compte"
     }
+  },
+  "dashboard": {
+    "title": "Tableau de bord",
+    "welcome": "Bienvenue dans votre tableau de bord",
+    "intro": "Commencez par créer quelques clients ou personnaliser votre profil.",
+    "cards": {
+      "clients": {
+        "title": "Clients",
+        "desc": "Gérez la liste, ajoutez, éditez, supprimez."
+      },
+      "quickstart": {
+        "title": "Prise en main",
+        "desc": "Navigation, thèmes, sécurité: tout est prêt."
+      },
+      "theme": {
+        "title": "Apparence",
+        "desc": "Activez le mode sombre si vos yeux le réclament."
+      }
+    },
+    "nav": {
+      "section": "Navigation",
+      "dashboard": "Dashboard",
+      "clients": "Clients"
+    }
+  },
+  "userMenu": {
+    "open": "Ouvrir le menu utilisateur",
+    "profile": "Profil",
+    "logout": "Se déconnecter"
   }
 }
