@@ -1,0 +1,76 @@
+{
+  "theme": {
+    "switch": "Changer de thème",
+    "light": "Clair",
+    "dark": "Sombre",
+    "system": "Système"
+  },
+  "lang": {
+    "switch": "Changer de langue",
+    "french": "Français",
+    "english": "Anglais"
+  },
+  "common": {
+    "unknownError": "Une erreur est survenue"
+  },
+  "auth": {
+    "login": {
+      "title": "Connexion",
+      "subtitle": "Entrez votre email pour accéder à votre compte",
+      "email": { "label": "Email" },
+      "password": { "label": "Mot de passe" },
+      "forgot": "Mot de passe oublié ?",
+      "noAccount": "Pas encore de compte ?",
+      "signup": "Créer un compte",
+      "cta": { "submit": "Se connecter", "loading": "Connexion..." },
+      "error": "Erreur : {message}"
+    },
+    "signup": {
+      "title": "Créer un compte",
+      "subtitle": "Renseignez votre email et un mot de passe",
+      "email": { "label": "Email" },
+      "password": { "label": "Mot de passe" },
+      "repeat": { "label": "Répéter le mot de passe" },
+      "hasAccount": "Déjà un compte ?",
+      "login": "Se connecter",
+      "cta": { "submit": "Créer le compte", "loading": "Création..." },
+      "errors": {
+        "mismatch": "Les mots de passe ne correspondent pas"
+      }
+    },
+    "forgot": {
+      "title": "Réinitialiser le mot de passe",
+      "subtitle": "Saisissez votre email, nous vous enverrons un lien de réinitialisation.",
+      "email": { "label": "Email" },
+      "cta": { "submit": "Envoyer l’email", "loading": "Envoi..." },
+      "hasAccount": "Déjà un compte ?",
+      "login": "Se connecter",
+      "sent": {
+        "title": "Vérifiez votre boîte mail",
+        "subtitle": "Instructions envoyées",
+        "body": "Si vous avez un compte avec email et mot de passe, vous recevrez un email de réinitialisation."
+      }
+    },
+    "update": {
+      "title": "Définir un nouveau mot de passe",
+      "subtitle": "Entrez votre nouveau mot de passe ci-dessous.",
+      "password": {
+        "label": "Nouveau mot de passe",
+        "placeholder": "Votre nouveau mot de passe"
+      },
+      "cta": { "submit": "Enregistrer", "loading": "Enregistrement..." }
+    },
+    "signupSuccess": {
+      "title": "Merci pour votre inscription !",
+      "subtitle": "Vérifiez votre email pour confirmer",
+      "body": "Vous avez créé votre compte. Confirmez-le via l’email avant de vous connecter."
+    },
+    "logout": "Se déconnecter"
+  },
+  "app": {
+    "title": "LimeCore"
+  },
+  "nextsteps": {
+    "title": "Prochaines étapes"
+  }
+}

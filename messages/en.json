@@ -1,0 +1,76 @@
+{
+  "theme": {
+    "switch": "Change theme",
+    "light": "Light",
+    "dark": "Dark",
+    "system": "System"
+  },
+  "lang": {
+    "switch": "Change language",
+    "french": "French",
+    "english": "English"
+  },
+  "common": {
+    "unknownError": "An unknown error occurred"
+  },
+  "auth": {
+    "login": {
+      "title": "Log in",
+      "subtitle": "Enter your email to access your account",
+      "email": { "label": "Email" },
+      "password": { "label": "Password" },
+      "forgot": "Forgot your password?",
+      "noAccount": "Don't have an account?",
+      "signup": "Sign up",
+      "cta": { "submit": "Log in", "loading": "Logging in..." },
+      "error": "Error: {message}"
+    },
+    "signup": {
+      "title": "Sign up",
+      "subtitle": "Provide your email and a password",
+      "email": { "label": "Email" },
+      "password": { "label": "Password" },
+      "repeat": { "label": "Repeat password" },
+      "hasAccount": "Already have an account?",
+      "login": "Log in",
+      "cta": { "submit": "Create account", "loading": "Creating..." },
+      "errors": {
+        "mismatch": "Passwords do not match"
+      }
+    },
+    "forgot": {
+      "title": "Reset your password",
+      "subtitle": "Enter your email and we'll send you a reset link.",
+      "email": { "label": "Email" },
+      "cta": { "submit": "Send reset email", "loading": "Sending..." },
+      "hasAccount": "Already have an account?",
+      "login": "Log in",
+      "sent": {
+        "title": "Check your email",
+        "subtitle": "Password reset instructions sent",
+        "body": "If you registered with email and password, you'll receive a reset email."
+      }
+    },
+    "update": {
+      "title": "Set a new password",
+      "subtitle": "Enter your new password below.",
+      "password": {
+        "label": "New password",
+        "placeholder": "Your new password"
+      },
+      "cta": { "submit": "Save new password", "loading": "Saving..." }
+    },
+    "signupSuccess": {
+      "title": "Thank you for signing up!",
+      "subtitle": "Check your email to confirm",
+      "body": "You've created your account. Please confirm it via email before logging in."
+    },
+    "logout": "Log out"
+  },
+  "app" : {
+    "title": "LimeCore"
+  },
+  "nextsteps": {
+    "title": "Next steps"
+  }
+}
