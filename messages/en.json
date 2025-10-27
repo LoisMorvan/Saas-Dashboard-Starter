@@ -65,12 +65,36 @@
       "subtitle": "Check your email to confirm",
       "body": "You've created your account. Please confirm it via email before logging in."
     },
+    "signIn": "Sign in",
+    "signUp": "Sign up",
     "logout": "Log out"
   },
-  "app" : {
+  "app": {
     "title": "LimeCore"
   },
-  "nextsteps": {
-    "title": "Next steps"
+  "home": {
+    "badge": "SaaS Starter",
+    "title": "Build and ship a modern SaaS in a weekend",
+    "subtitle": "Next.js + Tailwind + Supabase. Secure auth, Clients CRUD, dark mode, and a dashboard that doesn’t hurt to look at.",
+    "ctaPrimary": "Get started",
+    "ctaSecondary": "Sign in",
+    "disclaimer": "No credit card. Break things later, we have migrations.",
+    "f1": {
+      "title": "Auth out of the box",
+      "desc": "Email, password reset, and OAuth via Supabase Auth. Server-side sessions."
+    },
+    "f2": {
+      "title": "Data you control",
+      "desc": "Clients table with RLS. Each user only sees their rows. Security first, drama second."
+    },
+    "f3": {
+      "title": "Consistent UI",
+      "desc": "Tailwind, clear layout, reusable components. Dark mode for your retinas."
+    },
+    "bottom": {
+      "title": "Ready to launch your SaaS base",
+      "desc": "Save time on plumbing, focus on value.",
+      "cta": "Create account"
+    }
   }
 }
