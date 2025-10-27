@@ -1,16 +1,14 @@
-import SiteHeader from "@/components/layout/site-header";
 import SiteFooter from "@/components/layout/site-footer";
 
-export default function SiteLayout({
+export default function MarketingLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
   return (
     <div className="min-h-screen flex flex-col">
-      <SiteHeader />
       <main className="flex-1">{children}</main>
-      <SiteFooter />
+      <SiteFooter withSwitchers />
     </div>
   );
 }

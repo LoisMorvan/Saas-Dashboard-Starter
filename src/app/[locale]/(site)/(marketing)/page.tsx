@@ -8,7 +8,7 @@ export default function Home() {
   const t = useTranslations("home");
 
   return (
-    <main className="mx-auto w-full max-w-6xl px-5 py-12 md:py-20">
+    <main className="mx-auto w-full max-w-6xl px-5 py-12">
       <section className="text-center">
         <div className="mb-6 flex items-center justify-center gap-3">
           <BrandLogo />
