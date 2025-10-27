@@ -48,6 +48,8 @@ export default function BrandLogoClient({
       {img}
     </Link>
   ) : (
-    img
+    <span className="inline-flex" title={title} aria-label={title}>
+      {img}
+    </span>
   );
 }
