@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { useTranslations } from "next-intl";
 import { createClient } from "@/lib/supabase/client";
 import {
   DropdownMenu,
@@ -10,12 +11,15 @@ import {
   DropdownMenuSeparator,
 } from "@/components/ui/dropdown-menu";
 import { Button } from "@/components/ui/button";
-import { User2, LogOut, Settings } from "lucide-react";
+import { CircleUserRound, LogOut, Settings } from "lucide-react";
 import { useRouter } from "@/i18n/navigation";
+import type { UserMetadata } from "@/types/supabase";
 
 export default function UserMenu() {
   const supabase = createClient();
   const router = useRouter();
+  const t = useTranslations("userMenu");
+
   const [userEmail, setUserEmail] = useState<string | null>(null);
   const [avatarUrl, setAvatarUrl] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
@@ -23,16 +27,21 @@ export default function UserMenu() {
   useEffect(() => {
     supabase.auth.getUser().then(({ data: { user } }) => {
       setUserEmail(user?.email ?? null);
-      const url = (user?.user_metadata as any)?.avatar_url ?? null;
+      const meta = (user?.user_metadata ?? {}) as UserMetadata;
+      const url = typeof meta.avatar_url === "string" ? meta.avatar_url : null;
       setAvatarUrl(url);
     });
   }, [supabase]);
 
   async function onLogout() {
-    setLoading(true);
-    await supabase.auth.signOut();
-    router.push("/auth/login");
-    router.refresh();
+    try {
+      setLoading(true);
+      await supabase.auth.signOut();
+      router.push("/auth/login");
+      router.refresh();
+    } finally {
+      setLoading(false);
+    }
   }
 
   return (
@@ -41,7 +50,7 @@ export default function UserMenu() {
         <Button
           variant="ghost"
           size="sm"
-          aria-label="Open user menu"
+          aria-label={t("open")}
           className="rounded-full p-0 h-9 w-9"
         >
           {avatarUrl ? (
@@ -52,19 +61,20 @@ export default function UserMenu() {
               className="h-9 w-9 rounded-full object-cover"
             />
           ) : (
-            <User2 className="h-5 w-5" />
+            <CircleUserRound width={20} height={20} className="h-5 w-5" />
           )}
         </Button>
       </DropdownMenuTrigger>
+
       <DropdownMenuContent align="end" className="w-44">
-        <DropdownMenuItem onClick={() => router.push("/dashboard/profile")}>
+        <DropdownMenuItem onClick={() => router.push("/profile")}>
           <Settings className="mr-2 h-4 w-4" />
-          <span>Profil</span>
+          <span>{t("profile")}</span>
         </DropdownMenuItem>
         <DropdownMenuSeparator />
         <DropdownMenuItem onClick={onLogout} disabled={loading}>
           <LogOut className="mr-2 h-4 w-4" />
-          <span>Se déconnecter</span>
+          <span>{t("logout")}</span>
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
