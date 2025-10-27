@@ -6,6 +6,7 @@ import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
 import { getMessages } from "next-intl/server";
 import "../globals.css";
+import FlashRoot from "@/components/ui/flash-root";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -42,7 +43,7 @@ export default async function LocaleLayout({ children, params }: Props) {
           disableTransitionOnChange
         >
           <NextIntlClientProvider messages={messages} locale={locale}>
-            {children}
+            <FlashRoot>{children}</FlashRoot>
           </NextIntlClientProvider>
         </ThemeProvider>
       </body>
