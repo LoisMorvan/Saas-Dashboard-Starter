@@ -15,6 +15,7 @@ import { Label } from "@/components/ui/label";
 import { Link } from "@/i18n/navigation";
 import { useLocale, useTranslations } from "next-intl";
 import { useState } from "react";
+import { mapSupabaseErrorToKey } from "@/lib/auth-errors";
 
 export function ForgotPasswordForm({
   className,
@@ -26,7 +27,6 @@ export function ForgotPasswordForm({
   const [isLoading, setIsLoading] = useState(false);
   const locale = useLocale();
   const t = useTranslations("auth.forgot");
-  const tCommon = useTranslations("common");
 
   const handleForgotPassword = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -37,7 +37,6 @@ export function ForgotPasswordForm({
     try {
       const origin = window.location.origin;
       const prefix = locale === "fr" ? "" : `/${locale}`;
-      // Après clic sur l’email, Supabase renverra ici
       const redirectTo = `${origin}${prefix}/auth/update-password`;
 
       const { error } = await supabase.auth.resetPasswordForEmail(email, {
@@ -46,7 +45,16 @@ export function ForgotPasswordForm({
       if (error) throw error;
       setSuccess(true);
     } catch (err: unknown) {
-      setError(err instanceof Error ? err.message : tCommon("unknownError"));
+      const key = mapSupabaseErrorToKey(err);
+      const msg =
+        key === "invalidEmail"
+          ? t("errors.invalidEmail")
+          : key === "userNotFound"
+          ? t("errors.userNotFound")
+          : key === "rateLimited"
+          ? t("errors.rateLimited")
+          : t("errors.unknown");
+      setError(msg);
     } finally {
       setIsLoading(false);
     }
@@ -84,9 +92,16 @@ export function ForgotPasswordForm({
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     aria-invalid={!!error}
+                    className={cn(
+                      !!error && "border-red-500 focus-visible:ring-red-500"
+                    )}
                   />
                 </div>
-                {error && <p className="text-sm text-red-500">{error}</p>}
+                {error && (
+                  <p className="text-sm text-red-500">
+                    {t("error", { message: error })}
+                  </p>
+                )}
                 <Button
                   type="submit"
                   className="w-full"

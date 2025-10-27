@@ -15,6 +15,7 @@ import { Label } from "@/components/ui/label";
 import { useRouter } from "@/i18n/navigation";
 import { useLocale, useTranslations } from "next-intl";
 import { useState } from "react";
+import { mapSupabaseErrorToKey } from "@/lib/auth-errors";
 
 export function UpdatePasswordForm({
   className,
@@ -26,7 +27,6 @@ export function UpdatePasswordForm({
   const router = useRouter();
   const locale = useLocale();
   const t = useTranslations("auth.update");
-  const tCommon = useTranslations("common");
 
   const handleUpdate = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -37,10 +37,18 @@ export function UpdatePasswordForm({
     try {
       const { error } = await supabase.auth.updateUser({ password });
       if (error) throw error;
-
       router.push("/auth/login?reset=success", { locale });
     } catch (err: unknown) {
-      setError(err instanceof Error ? err.message : tCommon("unknownError"));
+      const key = mapSupabaseErrorToKey(err);
+      const msg =
+        key === "weakPassword"
+          ? t("errors.weakPassword")
+          : key === "sessionExpired"
+          ? t("errors.sessionExpired")
+          : key === "rateLimited"
+          ? t("errors.rateLimited")
+          : t("errors.unknown");
+      setError(msg);
     } finally {
       setIsLoading(false);
     }
@@ -66,9 +74,18 @@ export function UpdatePasswordForm({
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   aria-invalid={!!error}
+                  className={cn(
+                    !!error && "border-red-500 focus-visible:ring-red-500"
+                  )}
                 />
               </div>
-              {error && <p className="text-sm text-red-500">{error}</p>}
+
+              {error && (
+                <p className="text-sm text-red-500">
+                  {t("error", { message: error })}
+                </p>
+              )}
+
               <Button
                 type="submit"
                 className="w-full"

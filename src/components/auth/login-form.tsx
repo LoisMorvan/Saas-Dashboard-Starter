@@ -16,13 +16,13 @@ import { Link, useRouter } from "@/i18n/navigation";
 import { useSearchParams } from "next/navigation";
 import { useLocale, useTranslations } from "next-intl";
 import { useState } from "react";
+import { mapSupabaseErrorToKey } from "@/lib/auth-errors";
 
 export function LoginForm({
   className,
   ...props
 }: React.ComponentPropsWithoutRef<"div">) {
   const t = useTranslations("auth.login");
-  const tCommon = useTranslations("common");
   const router = useRouter();
   const searchParams = useSearchParams();
   const locale = useLocale();
@@ -48,7 +48,15 @@ export function LoginForm({
       if (error) throw error;
       router.push(nextPath, { locale });
     } catch (err: unknown) {
-      const msg = err instanceof Error ? err.message : tCommon("unknownError");
+      const key = mapSupabaseErrorToKey(err);
+      const msg =
+        key === "invalidCredentials"
+          ? t("errors.invalidCredentials")
+          : key === "emailNotConfirmed"
+          ? t("errors.emailNotConfirmed")
+          : key === "rateLimited"
+          ? t("errors.rateLimited")
+          : t("errors.unknown");
       setError(msg);
     } finally {
       setIsLoading(false);
