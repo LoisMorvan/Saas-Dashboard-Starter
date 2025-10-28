@@ -1,35 +1,66 @@
 "use client";
 
 import { usePathname, Link } from "@/i18n/navigation";
+import { useLocale, useTranslations } from "next-intl";
+import { cn } from "@/lib/utils";
 
-export default function Breadcrumbs() {
-  const pathname = usePathname() || "";
-  const ix = pathname.indexOf("/dashboard");
-  const base = ix >= 0 ? pathname.slice(ix) : pathname;
-  const parts = base.split("/").filter(Boolean);
+type Props = { className?: string };
 
-  const crumbs = parts.length === 0 ? ["dashboard"] : parts;
+export default function Breadcrumbs({ className }: Props) {
+  const pathname = usePathname() || "/";
+  const locale = useLocale();
+  const t = useTranslations("breadcrumbs");
+
+  const all = pathname.split("/").filter(Boolean);
+  const withoutLocale = all[0] === locale ? all.slice(1) : all;
+  const segments = withoutLocale.filter(
+    (s) => !(s.startsWith("(") && s.endsWith(")"))
+  );
+
+  const effective = segments.length === 0 ? ["dashboard"] : segments;
+
+  const labelFor = (seg: string) => {
+    const key = seg.toLowerCase();
+    try {
+      return t(key as string);
+    } catch {
+      return key.charAt(0).toUpperCase() + key.slice(1);
+    }
+  };
+
+  const crumbs = effective.map((seg, i) => {
+    const base = `/${locale}`;
+    const path = "/" + effective.slice(0, i + 1).join("/");
+    const href = base + path;
+    return {
+      href,
+      label: labelFor(seg),
+      last: i === effective.length - 1,
+    };
+  });
 
   return (
-    <nav className="text-sm text-muted-foreground overflow-x-auto whitespace-nowrap">
-      {crumbs.map((p, i) => {
-        const href = "/" + crumbs.slice(0, i + 1).join("/");
-        const label = p.charAt(0).toUpperCase() + p.slice(1);
-        const isLast = i === crumbs.length - 1;
-        return (
-          <span key={href}>
-            {i > 0 && <span className="mx-2">/</span>}
-            <Link
-              href={href}
-              className={
-                isLast ? "font-medium text-foreground" : "hover:underline"
-              }
-            >
-              {label}
-            </Link>
-          </span>
-        );
-      })}
+    <nav
+      aria-label="Breadcrumb"
+      className={cn(
+        "text-sm text-muted-foreground overflow-x-auto whitespace-nowrap",
+        className
+      )}
+    >
+      {crumbs.map((c, i) => (
+        <span key={c.href}>
+          {i > 0 && <span className="mx-2">/</span>}
+          <Link
+            href={c.href}
+            className={
+              c.last ? "font-medium text-foreground" : "hover:underline"
+            }
+            aria-current={c.last ? "page" : undefined}
+          >
+            {c.label}
+          </Link>
+        </span>
+      ))}
     </nav>
   );
 }
