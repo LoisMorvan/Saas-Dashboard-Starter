@@ -6,7 +6,8 @@ import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
 import { getMessages } from "next-intl/server";
 import "../globals.css";
-import FlashRoot from "@/components/ui/flash-root";
+import { Toaster } from "@/components/ui/sonner";
+import ToastBridge from "@/components/ui/toast-bridge";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -35,7 +36,10 @@ export default async function LocaleLayout({ children, params }: Props) {
 
   return (
     <html lang={locale} suppressHydrationWarning>
-      <body className={`${geistSans.className} antialiased`}>
+      <body
+        suppressHydrationWarning
+        className={`${geistSans.className} antialiased`}
+      >
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
@@ -43,7 +47,9 @@ export default async function LocaleLayout({ children, params }: Props) {
           disableTransitionOnChange
         >
           <NextIntlClientProvider messages={messages} locale={locale}>
-            <FlashRoot>{children}</FlashRoot>
+            <ToastBridge />
+            {children}
+            <Toaster position="top-center" richColors closeButton />
           </NextIntlClientProvider>
         </ThemeProvider>
       </body>
