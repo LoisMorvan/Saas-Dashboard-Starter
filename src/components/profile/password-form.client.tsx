@@ -2,7 +2,7 @@
 
 import { useState, useTransition } from "react";
 import { useTranslations } from "next-intl";
-import { useFlash } from "@/components/ui/flash";
+import { push } from "@/lib/toast";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -14,7 +14,6 @@ export default function PasswordForm() {
   const [pending, start] = useTransition();
   const [error, setError] = useState<string | null>(null);
   const t = useTranslations("profile.password");
-  const { push } = useFlash();
 
   return (
     <form

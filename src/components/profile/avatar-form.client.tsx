@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState, useTransition } from "react";
 import { useTranslations } from "next-intl";
-import { useFlash } from "@/components/ui/flash";
+import { push } from "@/lib/toast";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { CardContent, CardFooter } from "@/components/ui/card";
@@ -12,7 +12,6 @@ import { cn } from "@/lib/utils";
 export default function AvatarForm({ avatarUrl }: { avatarUrl: string }) {
   const [pending, start] = useTransition();
   const t = useTranslations("profile.avatar");
-  const { push } = useFlash();
 
   const [preview, setPreview] = useState<string>(avatarUrl || "/favicon.svg");
   const objectUrlRef = useRef<string | null>(null);
