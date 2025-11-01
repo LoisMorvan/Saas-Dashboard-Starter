@@ -208,6 +208,18 @@
     "filterByStatus": "Filter by status",
     "reset": "Reset",
     "newClient": "New client",
+    "filters": "Filters",
+    "apply": "Apply",
+    "clear": "Reset",
+    "close": "Close",
+    "sortBy": "Sort by",
+    "pageSize": "Page size",
+    "sort": {
+      "created_desc": "Created date (newest first)",
+      "created_asc": "Created date (oldest first)",
+      "name_asc": "Name (A → Z)",
+      "name_desc": "Name (Z → A)"
+    },
     "status": {
       "all": "All",
       "prospect": "Prospect",

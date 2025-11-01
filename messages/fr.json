@@ -208,6 +208,18 @@
     "filterByStatus": "Filtrer par statut",
     "reset": "Réinitialiser",
     "newClient": "Nouveau client",
+    "filters": "Filtres",
+    "apply": "Appliquer",
+    "clear": "Réinitialiser",
+    "close": "Fermer",
+    "sortBy": "Trier par",
+    "pageSize": "Taille de page",
+    "sort": {
+      "created_desc": "Date de création (récents d'abord)",
+      "created_asc": "Date de création (anciens d'abord)",
+      "name_asc": "Nom (A → Z)",
+      "name_desc": "Nom (Z → A)"
+    },
     "status": {
       "all": "Tous",
       "prospect": "Prospect",
