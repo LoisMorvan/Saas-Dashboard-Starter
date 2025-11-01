@@ -197,5 +197,127 @@
         "generic": "Une erreur est survenue. Réessayez."
       }
     }
+  },
+  "clients": {
+    "title": "Clients",
+    "searchPlaceholder": "Rechercher client…",
+    "searchAria": "Rechercher dans les clients",
+    "searchCta": "Chercher",
+    "filterByStatus": "Filtrer par statut",
+    "reset": "Réinitialiser",
+    "newClient": "Nouveau client",
+    "status": {
+      "all": "Tous",
+      "prospect": "Prospect",
+      "actif": "Actif",
+      "inactif": "Inactif"
+    },
+    "columns": {
+      "name": "Nom",
+      "company": "Entreprise",
+      "email": "Email",
+      "phone": "Téléphone",
+      "status": "Statut",
+      "address": "Adresse",
+      "created_at": "Créé le"
+    },
+    "form": {
+      "titles": {
+        "create": "Nouveau client",
+        "edit": "Modifier le client"
+      },
+      "desc": {
+        "create": "Renseignez les informations du client.",
+        "edit": "Mettez à jour les informations du client."
+      },
+      "labels": {
+        "name": "Nom",
+        "email": "Email",
+        "phone": "Téléphone",
+        "company": "Entreprise",
+        "status": "Statut",
+        "notes": "Notes",
+        "address": {
+          "line1": "Adresse (ligne 1)",
+          "line2": "Adresse (ligne 2)",
+          "postal_code": "Code postal",
+          "city": "Ville",
+          "region": "Région",
+          "country": "Pays"
+        }
+      },
+      "placeholders": {
+        "name": "Ex. Jean Dupont",
+        "email": "exemple@domaine.com",
+        "phone": "Ex. +33 6 12 34 56 78",
+        "company": "Ex. Acme Corp",
+        "notes": "Informations internes, contexte, etc.",
+        "address": {
+          "line1": "Numéro et voie",
+          "line2": "Complément",
+          "postal_code": "75001",
+          "city": "Paris",
+          "region": "Île-de-France",
+          "country": "France"
+        }
+      },
+      "errors": {
+        "nameRequired": "Le nom est requis.",
+        "emailInvalid": "Email invalide.",
+        "emailUnique": "Cet email existe déjà pour un autre client.",
+        "addressLine1Required": "La ligne d’adresse 1 est requise si vous renseignez l’adresse."
+      },
+      "cancel": "Annuler",
+      "createCta": "Créer",
+      "saveCta": "Enregistrer",
+      "toast": {
+        "createSuccess": "Client créé avec succès.",
+        "updateSuccess": "Client mis à jour.",
+        "createError": "Impossible de créer le client.",
+        "updateError": "Impossible de mettre à jour le client."
+      }
+    },
+    "rowActions": {
+      "open": "Ouvrir le menu",
+      "title": "Actions",
+      "edit": "Modifier",
+      "delete": "Supprimer"
+    },
+    "confirm": {
+      "delete": {
+        "title": "Supprimer ce client ?",
+        "description": "Cette action est irréversible. Le client et son adresse seront définitivement supprimés.",
+        "confirm": "Supprimer",
+        "cancel": "Annuler"
+      }
+    },
+    "delete": {
+      "success": "Client supprimé."
+    },
+    "pagination": {
+      "summary": "{total} résultats • Page {page}/{pageCount}",
+      "prev": "Précédent",
+      "next": "Suivant"
+    },
+    "empty": {
+      "title": "Aucun client pour le moment",
+      "desc": "Ajoutez votre premier client pour démarrer votre CRM.",
+      "cta": "Nouveau client"
+    }
+  },
+  "table": {
+    "searchPlaceholder": "Rechercher…",
+    "searchAria": "Rechercher dans le tableau",
+    "columnsButton": "Colonnes",
+    "noResults": "Aucun résultat",
+    "of": "sur",
+    "selectedRows": "sélectionné(s)",
+    "paginationAria": "Pagination du tableau",
+    "prevAria": "Page précédente",
+    "prev": "Précédent",
+    "goToPage": "Aller à la page {page}",
+    "morePages": "Plus de pages",
+    "nextAria": "Page suivante",
+    "next": "Suivant"
   }
 }

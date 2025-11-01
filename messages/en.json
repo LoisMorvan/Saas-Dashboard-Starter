@@ -197,5 +197,127 @@
         "generic": "An error occurred. Please try again."
       }
     }
+  },
+  "clients": {
+    "title": "Clients",
+    "searchPlaceholder": "Search clients…",
+    "searchAria": "Search in clients",
+    "searchCta": "Search",
+    "filterByStatus": "Filter by status",
+    "reset": "Reset",
+    "newClient": "New client",
+    "status": {
+      "all": "All",
+      "prospect": "Prospect",
+      "actif": "Active",
+      "inactif": "Inactive"
+    },
+    "columns": {
+      "name": "Name",
+      "company": "Company",
+      "email": "Email",
+      "phone": "Phone",
+      "status": "Status",
+      "address": "Address",
+      "created_at": "Created at"
+    },
+    "form": {
+      "titles": {
+        "create": "New client",
+        "edit": "Edit client"
+      },
+      "desc": {
+        "create": "Fill in the client details.",
+        "edit": "Update the client details."
+      },
+      "labels": {
+        "name": "Name",
+        "email": "Email",
+        "phone": "Phone",
+        "company": "Company",
+        "status": "Status",
+        "notes": "Notes",
+        "address": {
+          "line1": "Address (line 1)",
+          "line2": "Address (line 2)",
+          "postal_code": "ZIP / Postal code",
+          "city": "City",
+          "region": "Region",
+          "country": "Country"
+        }
+      },
+      "placeholders": {
+        "name": "e.g. John Doe",
+        "email": "example@domain.com",
+        "phone": "e.g. +1 415 555 1234",
+        "company": "e.g. Acme Inc.",
+        "notes": "Internal notes, context, etc.",
+        "address": {
+          "line1": "Street and number",
+          "line2": "Apt, suite, etc.",
+          "postal_code": "10001",
+          "city": "New York",
+          "region": "NY",
+          "country": "United States"
+        }
+      },
+      "errors": {
+        "nameRequired": "Name is required.",
+        "emailInvalid": "Invalid email.",
+        "emailUnique": "This email already exists for another client.",
+        "addressLine1Required": "Line 1 is required when providing an address."
+      },
+      "cancel": "Cancel",
+      "createCta": "Create",
+      "saveCta": "Save",
+      "toast": {
+        "createSuccess": "Client created successfully.",
+        "updateSuccess": "Client updated.",
+        "createError": "Could not create client.",
+        "updateError": "Could not update client."
+      }
+    },
+    "rowActions": {
+      "open": "Open menu",
+      "title": "Actions",
+      "edit": "Edit",
+      "delete": "Delete"
+    },
+    "confirm": {
+      "delete": {
+        "title": "Delete this client?",
+        "description": "This action cannot be undone. The client and its address will be permanently deleted.",
+        "confirm": "Delete",
+        "cancel": "Cancel"
+      }
+    },
+    "delete": {
+      "success": "Client deleted."
+    },
+    "pagination": {
+      "summary": "{total} results • Page {page}/{pageCount}",
+      "prev": "Previous",
+      "next": "Next"
+    },
+    "empty": {
+      "title": "No clients yet",
+      "desc": "Add your first client to kickstart your CRM.",
+      "cta": "New client"
+    }
+  },
+  "table": {
+    "searchPlaceholder": "Search…",
+    "searchAria": "Search table",
+    "columnsButton": "Columns",
+    "noResults": "No results",
+    "of": "of",
+    "selectedRows": "selected",
+    "paginationAria": "Table pagination",
+    "prevAria": "Previous page",
+    "prev": "Previous",
+    "goToPage": "Go to page {page}",
+    "morePages": "More pages",
+    "nextAria": "Next page",
+    "next": "Next"
   }
 }
