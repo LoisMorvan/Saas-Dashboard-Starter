@@ -5,6 +5,7 @@ import { getLocale } from "next-intl/server";
 import Topbar from "@/components/layout/topbar";
 import Sidebar from "@/components/layout/sidebar";
 import Breadcrumbs from "@/components/layout/topbar-breadcrumbs";
+import { ConfirmDialogProvider } from "@/components/ui/confirm-dialog";
 
 export default async function DashboardLayout({
   children,
@@ -32,7 +33,9 @@ export default async function DashboardLayout({
         <Sidebar />
       </aside>
 
-      <main className="p-4 md:p-6">{children}</main>
+      <main className="p-4 md:p-6">
+        <ConfirmDialogProvider>{children}</ConfirmDialogProvider>
+      </main>
     </div>
   );
 }
