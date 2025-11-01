@@ -51,7 +51,6 @@ export function NavUser() {
       if (!mounted) return;
       setEmail(user?.email ?? null);
       const meta = (user?.user_metadata ?? {}) as UserMeta;
-      console.log("User metadata:", meta);
       setName(typeof meta.full_name === "string" ? meta.full_name : null);
       setAvatarUrl(
         typeof meta.avatar_url === "string" ? meta.avatar_url : null
