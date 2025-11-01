@@ -3,12 +3,14 @@
     "switch": "Switch theme",
     "light": "Light",
     "dark": "Dark",
-    "system": "System"
+    "system": "System",
+    "menuLabel": "Theme"
   },
   "lang": {
     "switch": "Switch language",
     "french": "French",
-    "english": "English"
+    "english": "English",
+    "menuLabel": "Language"
   },
   "common": {
     "unknownError": "An error occurred"
@@ -319,5 +321,13 @@
     "morePages": "More pages",
     "nextAria": "Next page",
     "next": "Next"
+  },
+  "sidebar": {
+    "dashboard": "Dashboard",
+    "overview": "Overview",
+    "clients": "Clients",
+    "allClients": "All clients",
+    "theme": "Theme",
+    "language": "Language"
   }
 }

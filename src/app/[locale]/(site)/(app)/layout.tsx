@@ -2,10 +2,23 @@ import type { ReactNode } from "react";
 import { createClient } from "@/lib/supabase/server";
 import { redirect } from "@/i18n/navigation";
 import { getLocale } from "next-intl/server";
-import Topbar from "@/components/layout/topbar";
-import Sidebar from "@/components/layout/sidebar";
-import Breadcrumbs from "@/components/layout/topbar-breadcrumbs";
 import { ConfirmDialogProvider } from "@/components/ui/confirm-dialog";
+import { AppSidebar } from "@/components/app-sidebar";
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb";
+import { Separator } from "@/components/ui/separator";
+import {
+  SidebarInset,
+  SidebarProvider,
+  SidebarTrigger,
+} from "@/components/ui/sidebar";
+import TopbarBreadcrumbs from "@/components/layout/topbar-breadcrumbs.client";
 
 export default async function DashboardLayout({
   children,
@@ -20,22 +33,23 @@ export default async function DashboardLayout({
   if (!user) redirect({ href: "/auth/login", locale });
 
   return (
-    <div className="grid grid-rows-[56px_auto_1fr] md:grid-rows-[56px_1fr] md:grid-cols-[240px_1fr]">
-      <div className="md:col-span-2">
-        <Topbar />
-      </div>
-
-      <div className="md:hidden border-b px-4 py-2">
-        <Breadcrumbs />
-      </div>
-
-      <aside className="hidden md:block border-r bg-background">
-        <Sidebar />
-      </aside>
-
-      <main className="p-4 md:p-6">
-        <ConfirmDialogProvider>{children}</ConfirmDialogProvider>
-      </main>
-    </div>
+    <SidebarProvider>
+      <AppSidebar />
+      <SidebarInset>
+        <header className="flex h-16 shrink-0 items-center gap-2 transition-[width,height] ease-linear group-has-data-[collapsible=icon]/sidebar-wrapper:h-12">
+          <div className="flex items-center gap-2 px-4">
+            <SidebarTrigger className="-ml-1" />
+            <Separator
+              orientation="vertical"
+              className="mr-2 data-[orientation=vertical]:h-4"
+            />
+            <TopbarBreadcrumbs />
+          </div>
+        </header>
+        <div className="flex flex-1 flex-col gap-4 p-4 pt-0">
+          <ConfirmDialogProvider>{children}</ConfirmDialogProvider>
+        </div>
+      </SidebarInset>
+    </SidebarProvider>
   );
 }

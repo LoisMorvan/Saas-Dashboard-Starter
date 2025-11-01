@@ -3,12 +3,14 @@
     "switch": "Changer de thème",
     "light": "Clair",
     "dark": "Sombre",
-    "system": "Système"
+    "system": "Système",
+    "menuLabel": "Thème"
   },
   "lang": {
     "switch": "Changer de langue",
     "french": "Français",
-    "english": "Anglais"
+    "english": "Anglais",
+    "menuLabel": "Langue"
   },
   "common": {
     "unknownError": "Une erreur est survenue"
@@ -319,5 +321,13 @@
     "morePages": "Plus de pages",
     "nextAria": "Page suivante",
     "next": "Suivant"
+  },
+  "sidebar": {
+    "dashboard": "Tableau de bord",
+    "overview": "Aperçu",
+    "clients": "Clients",
+    "allClients": "Tous les clients",
+    "theme": "Thème",
+    "language": "Langue"
   }
 }
